@@ -65,6 +65,7 @@
                 <configuration>
                     <to>
                         <image>chlgkwk/argo-cd</image>
+                        <tag>develop</tag>
                     </to>
                     <container>
                         <environment>

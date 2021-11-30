@@ -4,7 +4,6 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'chmod +x mvnw'
-                sh './mvnw clean compile jib:dockerBuild'
             }
         }
         stage('Deployment') {
@@ -14,7 +13,7 @@ pipeline {
                         anyOf {branch 'develop'}
                     }
                     steps {
-                        sh 'docker run -dit -p 8080:8080 -e "SPRING_PROFILES_ACTIVE=dev" chlgkwk/argo-cd'
+                        sh './mvnw clean compile jib:build -Djib.to.tag=dev'
                     }
                 }
                 stage('Production') {
@@ -22,7 +21,7 @@ pipeline {
                         anyOf {branch 'master'}
                     }
                     steps {
-                        sh 'docker run -dit -p 8081:8080 -e "SPRING_PROFILES_ACTIVE=prd" chlgkwk/argo-cd'
+                        sh './mvnw clean compile jib:build -Djib.to.tag=prod'
                     }
                 }
             }
