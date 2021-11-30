@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'chmod +x mvnw'
-                sh 'sudo ./mvnw jib:dockerBuild'
+                sh './mvnw jib:dockerBuild'
             }
         }
         stage('Deployment') {
