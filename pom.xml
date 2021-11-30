@@ -73,7 +73,7 @@
                     </to>
                     <container>
                         <environment>
-                            <SPRING_PROFILES_ACTIVE/>
+                            <SPRING_PROFILES_ACTIVE>dev</SPRING_PROFILES_ACTIVE>
                         </environment>
                         <ports>
                             <port>8080</port>
