@@ -5,6 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import sun.security.krb5.internal.HostAddress;
+
+import java.net.UnknownHostException;
 
 @SpringBootApplication
 @RestController
@@ -21,8 +24,10 @@ public class KubeCicdExampleApplication {
     }
 
     @GetMapping("/")
-    public String www() {
-        return type + "V:" + version;
+    public String www() throws UnknownHostException {
+        HostAddress ha = new HostAddress();
+        String name = ha.getInetAddress().getHostName();
+        return type + "V:" + version + "///// name : " + name;
     }
 
 }
