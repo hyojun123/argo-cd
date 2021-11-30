@@ -65,7 +65,11 @@
                 <configuration>
                     <to>
                         <image>chlgkwk/argo-cd</image>
-                        <tag>dev</tag>
+                        <tags>dev</tags>
+                        <auth>
+                            <username>chlgkwk</username>
+                            <password>zlfhd134!!</password>
+                        </auth>
                     </to>
                     <container>
                         <environment>
