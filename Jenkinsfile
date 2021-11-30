@@ -14,6 +14,7 @@ pipeline {
                     }
                     steps {
                         sh './mvnw clean compile jib:build -Djib.to.tags=dev.v$BUILD_NUMBER'
+                        sh 'helm upgrade test-boot /home/hjchoi/kuber/test-boot/ --set image.tag="dev.v$BUILD_NUMBER"'
                     }
                 }
                 stage('Production') {
