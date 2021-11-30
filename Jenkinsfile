@@ -13,7 +13,7 @@ pipeline {
                         anyOf {branch 'develop'}
                     }
                     steps {
-                        sh './mvnw clean compile jib:build -Djib.to.tag=dev'
+                        sh './mvnw clean compile jib:build -Djib.to.tags=dev'
                     }
                 }
                 stage('Production') {
@@ -21,7 +21,7 @@ pipeline {
                         anyOf {branch 'master'}
                     }
                     steps {
-                        sh './mvnw clean compile jib:build -Djib.to.tag=prod'
+                        sh './mvnw clean compile jib:build -Djib.to.tags=prod'
                     }
                 }
             }
